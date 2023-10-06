@@ -1,0 +1,36 @@
+fieldset {
+    width: 350px;
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    padding: 5px; 
+    margin: 0.5px;
+  
+  }
+
+  p{
+    background-color: rgba(247, 234, 234, 0.913);
+     text-align: center;
+     
+  }
+
+  .chart-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .chart {
+    width: 100%;
+    max-width: 500px; /* Adjust the maximum width as needed */
+}
+.row {
+  display: flex;
+  justify-content: center; /* Center-align the fieldsets horizontally */
+  gap: 1px; /* Add some space between fieldsets */
+  padding: 0; /* Add padding around the fieldsets */
+}
+body {
+  margin: 0; /* Remove default body margin */
+  padding: 0; /* Remove default body padding */
+  font-family: Arial, sans-serif; /* Use a common font */
+}
+  

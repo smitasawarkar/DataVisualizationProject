@@ -1,0 +1,47 @@
+<div [formGroup]="chartForm" class="selcontainer mt-1">
+  <!-- Bank Selection -->
+  <div class="form-group" *ngIf="showbank">
+    <label for="bank">Select Bank:</label>
+    <select class="form-control" id="bank" name="bank" [(ngModel)]="bank" formControlName="bank" required 
+      [ngClass]="{ 'is-invalid': submitted && validatecontrol['bank'].errors && (validatecontrol['bank'].touched || validatecontrol['bank'].dirty) }">
+      <option value="">-- Select Bank --</option>
+      <option value="icici">ICICI</option>
+      <option value="hdfc">HDFC</option>
+      <option value="sbi">SBI</option>
+    </select>
+    <!-- Display error message for bank selection -->
+    <div *ngIf="validatecontrol['bank'].errors && (validatecontrol['bank'].touched || validatecontrol['bank'].dirty)" class="invalid-feedback">
+      <div *ngIf="validatecontrol['bank'].hasError('required')" class="text-danger">Bank is required</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="startDate">Start Date:</label>
+        <input type="date" class="form-control" id="startDate" name="startDate" formControlName="startDate" [(ngModel)]="startDate" (change)="updateEndDateMin()" required
+        [ngClass]="{ 'is-invalid': submitted && validatecontrol['startDate'].errors && (validatecontrol['startDate'].touched || validatecontrol['startDate'].dirty) }">
+        <!-- Display error message for start date -->
+        <div *ngIf="validatecontrol['startDate'].errors && (validatecontrol['startDate'].touched || validatecontrol['startDate'].dirty)" class="invalid-feedback">
+          <div *ngIf="validatecontrol['startDate'].hasError('required')" class="text-danger">Start Date is required</div>
+        </div>
+      
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="endDate">End Date:</label>
+        <input type="date" class="form-control" id="endDate" name="endDate" formControlName="endDate" [(ngModel)]="endDate" [min]="minEndDate" required
+        [ngClass]="{ 'is-invalid': submitted && validatecontrol['endDate'].errors && (validatecontrol['endDate'].touched || validatecontrol['endDate'].dirty) }">
+        <!-- Display error message for end date -->
+        <div *ngIf="validatecontrol['endDate'].errors && (validatecontrol['endDate'].touched || validatecontrol['endDate'].dirty)" class="invalid-feedback">
+        <div *ngIf="validatecontrol['endDate'].hasError('required')" class="text-danger">End Date is required</div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center pt-3 pd-3">
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary" (click)="getData()">Submit</button>
+  </div>
+</div>

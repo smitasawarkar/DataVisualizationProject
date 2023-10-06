@@ -1,0 +1,64 @@
+@media (max-width: 768px) {
+}
+input[type="text"] {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.p-button {
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  align-items: center;
+}
+.p-button:hover {
+  background-color: #0056b3;
+}
+.p-error {
+  color: red;
+  font-style: italic;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .flex {
+    flex-direction: column;
+  }
+}
+.flex-modal {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  width: 40%;
+  margin-bottom: 1rem;
+}
+.flex-item-input {
+  flex: 0.75;
+}
+.buttons{
+  align-items: center;
+}
+      
+label {
+  width: 23%;
+}
+
+.input-width {
+  width: 25%;
+}
+.footer-center{
+text-align: center !important;
+}
+.row{
+  width: 60rem;
+}
+.readonly-black {
+  background-color: rgb(197, 192, 192);
+}
+

@@ -1,0 +1,25 @@
+.container{
+    max-width: 720px;
+    border: 2px solid rgb(9, 10, 10);
+    border-radius: 25px;
+    background-color: rgb(237, 241, 245);
+ }
+
+ .form-control{
+    height: 30px;
+ }
+
+ select {
+    font-size: 13px;  
+    color: #4d4b4b;      
+  }
+
+.full{
+    background-image: url('../../../assets/images/bk.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    /* margin-bottom: -50px; */
+}
+
+

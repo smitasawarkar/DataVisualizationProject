@@ -1,0 +1,110 @@
+<p-dialog header={{header}} [(visible)]="displayAddEditModal" [modal]="true"
+ [style]="{'width': '45vw','height': '27vw'}"
+  [draggable]="false" [resizable]="false" (onHide)="closeModal()">
+  <form [formGroup]="transactionForm" class="transaction-form">
+    <div class="row">
+      <div class="flex-modal">
+        <label for="txnId" class="flex-item">Txn-Id</label>
+        <label type="number" class="  form-control flex-item-input input-width" style="background-color:rgb(197, 192, 192);" 
+        pInputText id="txnId"    formControlName="txnId">{{selectedProduct.txnId}}</label>
+      </div>
+      <div class="flex-modal">
+        <label class="flex-item" for="amount">Amount</label>
+          <input type="number" class="form-control flex-item-input input-width" [readOnly]="modalType == 'Edit'"  pInputText id="amount" formControlName="amount"
+  [class.readonly-black]="modalType === 'Edit'">
+        <small class="p-error block" *ngIf="
+          transactionForm.controls['amount'].invalid &&
+          transactionForm.controls['amount'].dirty
+        ">Field is required</small>
+      </div>
+    </div>
+    <div class="row">
+      <div class="flex-modal">
+        <label class="block" for="gender" class="flex-item">Gender</label>
+        <p-dropdown placeholder="Select a gender" [editable]="true" [disabled]="modalType == 'Edit'"
+          formControlName="gender" [options]="genders" class="flex-item-input input-width" 
+          [class.readonly-black]="modalType === 'Edit'"></p-dropdown>
+        <small class="p-error block" *ngIf="
+          transactionForm.controls['gender'].invalid &&
+          transactionForm.controls['gender'].dirty
+        ">Field is required</small>
+      </div>
+
+      <div class="flex-modal">
+        <label class="block" for="bank" class="flex-item">Bank</label>
+        <p-dropdown placeholder="Select bank" [editable]="true" [disabled]="modalType == 'Edit'" formControlName="bank"
+          [options]="bank" class="flex-item-input input-width" [class.readonly-black]="modalType === 'Edit'"></p-dropdown>
+        <small class="p-error block" *ngIf="
+            transactionForm.controls['bank'].invalid &&
+            transactionForm.controls['bank'].dirty
+          ">Field is required</small>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="flex-modal">
+        <label class="block" for="cardType" class="flex-item">CardType</label>
+        <p-dropdown placeholder="Select a cardType" [editable]="true" [disabled]="modalType == 'Edit'"
+          formControlName="cardType" [options]="cardType" class="flex-item-input input-width"
+          [class.readonly-black]="modalType === 'Edit'"></p-dropdown>
+        <small class="p-error block" *ngIf="
+            transactionForm.controls['cardType'].invalid &&
+            transactionForm.controls['cardType'].dirty
+          ">Field is required</small>
+      </div>
+      <div class="flex-modal">
+        <label class="block" for="city" class="flex-item">City</label>
+        <input type="text" class="   form-control flex-item-input input-width" formControlName="city" />
+        <small class="p-error block" *ngIf="
+            transactionForm.controls['city'].invalid &&
+            transactionForm.controls['city'].dirty
+          ">Field is required</small>
+      </div>
+    </div>
+    <div class="row">
+      <div class="flex-modal" style="overflow-y: visible;">
+        <label class="block" for="status" class="flex-item">Status</label>
+        <p-dropdown class="flex-item-input input-width " placeholder="Select a status" [editable]="true"
+          formControlName="status" [options]="status"></p-dropdown>
+        <small class="p-error block" *ngIf="
+            transactionForm.controls['status'].invalid &&
+            transactionForm.controls['status'].dirty
+          ">Field is required</small>
+      </div>
+      <div class="flex-modal">
+        <label class="block" for="txnTime" class="flex-item">txn_date </label>
+        <div class="input-group">
+          <input *ngIf="modalType === 'Edit'" [readOnly]="true" type="text" style="margin-left: 9px;background-color:rgb(197, 192, 192);" 
+            class=" form-control flex-item-input input-width" pInputText id="txnTime" formControlName="txnTime">
+          <input *ngIf="modalType !== 'Edit'" type="text" style="margin-left: 9px;background-color:rgb(197, 192, 192);" 
+            class=" form-control flex-item-input input-width" pInputText id="txnTimeNotEdit"
+            [value]="this.date | date:'yyyy-MM-dd' " [readOnly]="true" />
+        </div>
+      </div>
+      <small class="p-error block" *ngIf="
+            transactionForm.controls['txnTime'].invalid &&
+            transactionForm.controls['txnTime'].dirty
+          ">Field is required</small>
+    </div>
+    <div class="flex-modal">
+      <label class="block" for="expType" class="flex-item">Exp-Type</label>
+      <input [readOnly]="modalType === 'Edit'" type="text" placeholder="Expense Type" class="  form-control flex-item-input input-width" pInputText
+        id="expType" formControlName="expType" style="margin-left: 1rem; width: 11.4rem;"
+        [class.readonly-black]="modalType === 'Edit'"/>
+      <small class="p-error block" *ngIf="
+            transactionForm.controls['expType'].invalid &&
+            transactionForm.controls['expType'].dirty
+          ">Field is required</small>
+    </div>
+  </form>
+  <ng-template pTemplate="footer" class="" style="z-index: 0;">
+    <div class="footer-center">
+      <p-button (click)="closeModal()" label="Cancel" styleClass="p-button-text"></p-button>
+      <p-button *ngIf="modalType === 'Edit'" (click)="addEditProduct()"
+        [disabled]="transactionForm.invalid">Update</p-button>
+      <p-button *ngIf="modalType === 'Add'" (click)="addNewProduct()" [disabled]="transactionForm.invalid"> Add
+        transaction</p-button>
+    </div>
+  </ng-template>
+</p-dialog>

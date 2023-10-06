@@ -1,0 +1,42 @@
+
+  .isClicked {
+    background-color: yellow !important;
+}
+.margin-left {
+    margin-left: 1rem;
+
+}
+.nodata{
+    text-align: center;
+    font-size: larger;
+    font-weight: bolder;
+}
+.bi{
+    background-color: rgb(81, 88, 230);
+}
+p-table {
+    border-collapse: collapse;
+  }
+  
+  tr {
+    border-bottom: 2px solid black;
+  }
+.table-content{
+    background-color: rgb!important;
+}
+
+.flex {
+  display: flex;
+}
+@media (max-width: 768px) {
+  input {
+      width: 100%;
+      padding: 0.3rem;
+      background-color: lightgray;
+  }
+  
+  .margin-left {
+      margin-left: 0;
+      margin-top: 1rem; 
+  }
+}

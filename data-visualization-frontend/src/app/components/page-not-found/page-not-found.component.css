@@ -1,0 +1,18 @@
+body {
+    background-color: #f8f9fa;
+}
+.error-container {
+    text-align: center;
+    padding: 75px 0;
+}
+.error-heading {
+    font-size: 120px;
+    color: #dc3545;
+}
+.error-text {
+    font-size: 24px;
+    margin-top: 20px;
+}
+.back-button {
+    margin-top: 20px;
+}

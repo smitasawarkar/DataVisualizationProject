@@ -1,0 +1,16 @@
+fieldset {
+    height: 1px margin auto;
+    width: 1px , margin auto;
+    border: 0px solid #ccc; /* Border color and thickness */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding inside the fieldset */
+    margin: 10px 0;
+  }
+  .selcontainer{
+    max-width: 720px;
+   
+ }
+ .invalid-feedback{
+  display: block;
+  }
+ 

@@ -1,0 +1,57 @@
+
+    
+    <div class="row">
+      
+        <fieldset>
+          <app-chart-input (dataEvent)="setData($event)" [chartName]="'bar'"></app-chart-input>
+          
+          <hr>
+          <p>Bar Chart Representation</p>
+         
+          <div class="chart-container">
+            <canvas id="barchart" class="chart"></canvas>
+          </div>
+          <div class="text-center pt-3 pd-3" *ngIf="showButton">
+          <button type="submit" class="btn btn-primary" (click)="downloadBarChartData()">Download</button>
+          <div>
+            <small style="color: red;">Download transactions in excel file.</small>
+          </div>
+        </div>
+        <div>
+          
+        </div>
+        
+        </fieldset>
+
+        <fieldset>
+          <app-chart-input (dataEvent)="setData($event)" [chartName]="'pie'"></app-chart-input>
+          <hr>
+          <p>Pie Chart Representation</p>
+          
+          <div class="chart-container">
+            <canvas id="piechart" class="chart" ></canvas>
+          </div>
+          <div class="text-center pt-3 pd-3" *ngIf="showButton">
+            <button type="submit" class="btn btn-primary" (click)="downloadPieChartData()">Download</button>
+            <div>
+              <small style="color: red;">Download transactions in excel file.</small>
+            </div>
+          </div>
+          </fieldset>
+        
+        <fieldset>
+           <app-chart-input (dataEvent)="setData($event)" [chartName]="'line'"></app-chart-input>
+          <hr>
+          <p>Line Chart Representation</p>
+      
+          <div class="chart-container">
+            <canvas id="linechart" class="chart"></canvas>
+          </div>
+          <div class="text-center pt-3 pd-3" *ngIf="showButton">
+            <button type="submit" class="btn btn-primary" (click)="downloadLineChartData()">Download</button>
+            <div>
+              <small style="color: red;">Download transactions in excel file.</small>
+            </div>
+          </div>
+          </fieldset>
+      </div>
